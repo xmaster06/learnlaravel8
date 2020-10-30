@@ -1,14 +1,8 @@
-@include('header')
-<h1>Users Page</h1>
-@include('inner')
+<h1>User Login</h1>
 
-@foreach($users as $item)
-    <h3>{{$item}}</h3>
-@endforeach
-
-@csrf
-
-<script>
-    var data = @json($users);
-    console.warn(data);
-</script>
+<form method="post" action="users">
+    @csrf
+    <input type="text" name="username"/>
+    <input type="password" name="password"/>
+    <button type="submit">Login</button>
+</form>

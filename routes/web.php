@@ -18,4 +18,6 @@ Route::get('/', function () {
     return view("welcome");   // Route redirect etme
 });
 
-Route::get("users",[Users::class,'index']);
+Route::view("users","users");
+//Route::get("users",[Users::class,'index']);
+Route::post("users", [Users::class, 'index']);
