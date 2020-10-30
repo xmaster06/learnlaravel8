@@ -18,13 +18,5 @@ Route::get('/', function () {
     return view("welcome");   // Route redirect etme
 });
 
-Route::get("/users",[Users::class,"index"]);                //Parametresiz controller çağırma
-
-//Parametreli controller çağırma Controller fonksiyonu byName($name) şeklinde parametreyi karşılamalı
-Route::get("/users/{name}", [Users::class, "byName"]);      
-
-// Route::get("/users/{name}",function($name){     // Parametreli view çağırma
-//     return view("users",["user"=>$name]);       // Burda direk view çağırıyoruz Controller kullanmıyoruz
-// });
-
-// Route::view("users","users");    // Parametresiz view çağırma
+Route::view("users","users");
+Route::view("about", "about");

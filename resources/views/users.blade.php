@@ -1,1 +1,2 @@
-<h1>Hello {{ $user ?? '' }}</h1>
+<x-header data="Users Component Header"/>
+<h1>User Page</h1>
