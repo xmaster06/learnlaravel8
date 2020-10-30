@@ -18,5 +18,4 @@ Route::get('/', function () {
     return view("welcome");   // Route redirect etme
 });
 
-Route::view("users","users");
-Route::view("about", "about");
+Route::get("users",[Users::class,'index']);
