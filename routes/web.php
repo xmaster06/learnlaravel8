@@ -19,5 +19,7 @@ Route::get('/', function () {
 });
 
 Route::view("users","users");
+Route::view("home", "home");
+Route::view("noaccess", "noaccess");
 //Route::get("users",[Users::class,'index']);
-Route::post("users", [Users::class, 'index']);
+//Route::post("users", [Users::class, 'index']);
