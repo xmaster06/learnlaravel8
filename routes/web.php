@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Users;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,17 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect("about");   // Route redirect etme
+    return view("welcome");   // Route redirect etme
 });
 
+Route::get("users/api", [Users::class, 'api']); // Bu fonksyion alttaki fonksiyon tarafından ezilmemek için yukarıda olmalı
 
-Route::get('/about', function () {  // about.blade.php getFonksiyonu ile çağırma
-    return view('about');
-});
+Route::get("users/{user}",[Users::class,'index']); // path, Class, function
 
-Route::view('/about','about')->name("about");  // about.blade.php viewFonksyionu ile çağırma
-Route::view('/contact', 'contact')->name("contact"); // Rota isimlendirme
-
-Route::get('/about/{name}', function ($name) {  // getFonksiyonu ile parametre alma
-    return view('about',['isim'=>$name]);
-});
