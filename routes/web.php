@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\UploadController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +19,4 @@ Route::get('/', function () {
 });
 
 
-Route::get("/profile/{lang}",function($lang){
-    App::setlocale($lang);
-    return view("profile");
-});
+Route::get("/users",[UserController::class,'all']);
