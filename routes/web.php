@@ -1,8 +1,7 @@
 <?php
 
+use App\Http\Controllers\AddMember;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserAuth;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,25 +21,6 @@ Route::get('/', function () {
 //Route::get("users",[Users::class,'index']);
 //Route::post("users", [Users::class, 'index']);
 
+Route::view("add","add");
 
-Route::get("users", [Users::class, 'index']);
-Route::post("users",[Users::class,'index']);
-
-Route::post("/login",[UserAuth::class,'userLogin']);
-
-Route::view("/profile", "profile");
-
-Route::get("/login", function () {
-    if (session()->has('user')) {
-        return redirect("profile");
-    }else{
-        return view("login");
-    }
-})->name("logout");
-
-Route::get("/logout",function(){
-    if(session()->has('user')){
-        session()->pull('user');
-    }
-    return redirect("login");
-})->name("logout");
+Route::post("add",[AddMember::class,"add"]);
