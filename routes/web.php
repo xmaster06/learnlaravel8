@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AddMember;
+use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +21,6 @@ Route::get('/', function () {
 //Route::get("users",[Users::class,'index']);
 //Route::post("users", [Users::class, 'index']);
 
-Route::view("add","add");
+Route::view("upload", "upload");
 
-Route::post("add",[AddMember::class,"add"]);
+Route::post("upload",[UploadController::class,"upload"]);
