@@ -23,10 +23,4 @@ Route::get('/', function () {
 //Route::post("users", [Users::class, 'index']);
 
 
-Route::get("users/getuser",[Users::class,'getUser']);
-
-Route::view("noaccess", "noaccess");
-
-Route::view("users","users")->middleware('protectedPage');
-Route::view("home", "home")->middleware('protectedPage');
-Route::view("noaccess", "noaccess")->middleware('protectedPage');
+Route::get("users",[Users::class,'index']);

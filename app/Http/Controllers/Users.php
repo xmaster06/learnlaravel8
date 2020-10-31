@@ -3,19 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use Illuminate\Support\Facades\Http;
 
 class Users extends Controller
 {
-    public function index(Request $req){
-        $req->validate([
-            'username'  =>  'required | max:10',
-            'password'  =>  'required | min:5'
-        ]);
-        return $req->input();
-    }
-
-    public function getUser(){
-        return User::all();
+    public function index(){
+        $collection = Http::get("https://reqres.in/api/users?page=1");
+        return view("users",['collection'=>$collection['data']]);
     }
 }
