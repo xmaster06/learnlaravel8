@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\Http;
 
 class Users extends Controller
 {
-    public function index(){
-        $collection = Http::get("https://reqres.in/api/users?page=1");
-        return view("users",['collection'=>$collection['data']]);
+    public function index(Request $req){
+        $data = ['data' => $req->input()];
+        return view("users",$data);
     }
 }

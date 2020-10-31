@@ -1,18 +1,10 @@
-<h1>User List</h1>
+<h1>User Login</h1>
 
-<table border="1">
-    <tr>
-        <td>ID</td>
-        <td>Name</td>
-        <td>Email</td>
-        <td>Profile Photo</td>
-    </tr>
-    @foreach ($collection as $user)
-    <tr>
-        <td>{{$user['id']}}</td>
-        <td>{{$user['first_name']." ".$user['last_name']}}</td>
-        <td>{{$user['email']}}</td>
-        <td><img src="{{$user['avatar']}}" height="100" /></td>
-    </tr>
-    @endforeach
-</table>
+{{ print_r($data)}}
+
+<form method="POST">
+    @csrf
+    <input type="text" name="username" placeholder="Username" /><br /><br />
+    <input type="text" name="password" placeholder="Password" /><br /><br />
+    <button type="submit">Login</button>
+</form>

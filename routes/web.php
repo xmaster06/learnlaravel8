@@ -23,4 +23,5 @@ Route::get('/', function () {
 //Route::post("users", [Users::class, 'index']);
 
 
-Route::get("users",[Users::class,'index']);
+Route::get("users", [Users::class, 'index']);
+Route::post("users",[Users::class,'index']);
