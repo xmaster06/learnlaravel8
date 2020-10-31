@@ -23,6 +23,7 @@ Route::get('/', function () {
 //Route::post("users", [Users::class, 'index']);
 
 
+Route::get("users/getuser",[Users::class,'getUser']);
 
 Route::view("noaccess", "noaccess");
 

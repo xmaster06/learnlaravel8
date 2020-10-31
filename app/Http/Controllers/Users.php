@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class Users extends Controller
 {
@@ -12,5 +13,9 @@ class Users extends Controller
             'password'  =>  'required | min:5'
         ]);
         return $req->input();
+    }
+
+    public function getUser(){
+        return User::all();
     }
 }
