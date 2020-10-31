@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Users;
+use App\Http\Controllers\UserAuth;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +25,22 @@ Route::get('/', function () {
 
 Route::get("users", [Users::class, 'index']);
 Route::post("users",[Users::class,'index']);
+
+Route::post("/login",[UserAuth::class,'userLogin']);
+
+Route::view("/profile", "profile");
+
+Route::get("/login", function () {
+    if (session()->has('user')) {
+        return redirect("profile");
+    }else{
+        return view("login");
+    }
+})->name("logout");
+
+Route::get("/logout",function(){
+    if(session()->has('user')){
+        session()->pull('user');
+    }
+    return redirect("login");
+})->name("logout");
