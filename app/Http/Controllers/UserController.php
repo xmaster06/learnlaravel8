@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function all(){
-        $data = ['members'=>User::all()];
+       // return User::paginate(10);    // Sayfalamayı JSON olarak al
+        $data = ['members'=>User::paginate(10)];
         return view('member',$data);
     }
 }

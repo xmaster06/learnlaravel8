@@ -1,4 +1,4 @@
-<h1>Member List</h1>
+<h1>User List</h1>
 
 <table>
     <tr>
@@ -16,3 +16,13 @@
     </tr>
     @endforeach
 </table>
+
+<span>
+    {{ $members->links()}}
+</span>
+
+<style>
+    .w-5{
+        height:15px;
+    }
+</style>
