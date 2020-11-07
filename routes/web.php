@@ -1,7 +1,5 @@
 <?php
-
-use App\Http\Controllers\MemberController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\Members;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,17 +17,12 @@ Route::get('/', function () {
     return view("welcome");   // Route redirect etme
 });
 
+Route::get('members',[Members::class,'tum']);
 
-Route::get("/users",[UserController::class,'all']);
+Route::get('members/{id}', [Members::class, 'tek']);
 
-Route::view("add","addmember");
+Route::get('ekle', [Members::class, 'ekle']);
 
-Route::post("add",[MemberController::class, 'addData']);
+Route::get('guncelle/{id}', [Members::class, 'guncelle']);
 
-Route::get("/list",[MemberController::class, 'list']);
-
-Route::get("/list/delete/{id}", [MemberController::class, 'delete']);
-
-Route::get("/list/edit/{id}", [MemberController::class, 'edit']);
-
-Route::post("/list/edit", [MemberController::class, 'update'])->name("update");
+Route::get('sil/{id}', [Members::class, 'sil']);
