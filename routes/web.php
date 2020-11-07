@@ -25,3 +25,7 @@ Route::get("/users",[UserController::class,'all']);
 Route::view("add","addmember");
 
 Route::post("add",[MemberController::class, 'addData']);
+
+Route::get("/list",[MemberController::class, 'list']);
+
+Route::get("/list/delete/{id}", [MemberController::class, 'delete']);
