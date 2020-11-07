@@ -12,7 +12,10 @@
         <td>{{ $l->name }}</td>
         <td>{{ $l->email }}</td>
         <td>{{ $l->address }}</td>
-        <td align="center"><a href="{{ 'list/delete/'.$l->id }}">Sil</a></td>
+        <td align="center">
+            <a href="{{ 'list/delete/'.$l->id }}">Sil</a>
+            <a href="{{ 'list/edit/'.$l->id }}">Güncelle</a>
+        </td>
     </tr>
     @endforeach
 </table>

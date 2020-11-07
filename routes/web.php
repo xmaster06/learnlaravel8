@@ -29,3 +29,7 @@ Route::post("add",[MemberController::class, 'addData']);
 Route::get("/list",[MemberController::class, 'list']);
 
 Route::get("/list/delete/{id}", [MemberController::class, 'delete']);
+
+Route::get("/list/edit/{id}", [MemberController::class, 'edit']);
+
+Route::post("/list/edit", [MemberController::class, 'update'])->name("update");

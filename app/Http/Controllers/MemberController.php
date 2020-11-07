@@ -26,4 +26,19 @@ class MemberController extends Controller
         $el->delete();
         return redirect("list");
     }
+
+    function edit($id){
+        $el = Member::find($id);
+        return view('editmember', ['el' => $el]);        
+    }
+
+    function update(Request $req){
+        $el = Member::find($req->_id);
+        $el->name = $req->name;
+        $el->email = $req->email;
+        $el->address = $req->address;
+        $el->save();
+        return redirect("list/edit/".$req->_id);
+    }
+
 }
